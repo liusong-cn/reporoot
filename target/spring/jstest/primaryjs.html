@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+</head>
+<body>
+<script>
+	var s = "hello";
+	//基础类型本来没有属性，此处赋值时将产生一个临时的String对象，但是赋值完后即失效，故
+	//t变量为空
+	s.len  =  4;
+	var t = s.len;
+	console.log(t);
+	console.log(typeof s);
+	//js区分大小写
+	var S = new String("hello");
+	console.log(typeof S);
+	//双等号将原始值和其包装对象视为相等
+	console.log(s == S);
+	//全等号将原始值和其包装对象视为不相等
+	//全等比较时，如果都是object，比较的是object是否为同一个，如果是则为true；
+	//如果是比较的原始值，比较的是该值是否为同一个
+	//egg:  var a = 1,b = 1; a == b(true) a === b(true);
+	//var m = {i:1},n = {i:1}; m == n(false);m['i'] === n['i'](true);m === n(false); var o = m;o === m(true)
+	console.log(s === S);
+</script>
+</body>
+</html>
