@@ -32,7 +32,7 @@
         class="org.springframework.web.servlet.view.InternalResourceViewResolver"
         id="internalResourceViewResolver">
         <!-- 前缀 -->
-        <property name="prefix" value="/webpage/"/>
+        <property name="prefix" value="/"/>
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>

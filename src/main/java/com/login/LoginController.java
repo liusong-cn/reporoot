@@ -42,6 +42,16 @@ public class LoginController {
 		}
 		return new ModelAndView("com/common/mix");
 	}
+
+	/**
+	 * 测试jrebel时使用
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(params = "goTest")
+	public ModelAndView goTest(HttpServletRequest req){
+		return new ModelAndView("com/common/mix");
+	}
 	
 	@RequestMapping(params = "doLogin")
 	public void doLogin(HttpServletRequest req,HttpServletResponse res){
