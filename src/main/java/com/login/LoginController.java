@@ -40,7 +40,7 @@ public class LoginController {
 			
 			
 		}
-		return new ModelAndView("com/common/mix");
+		return new ModelAndView("datagrid/datagrid");
 	}
 
 	/**
