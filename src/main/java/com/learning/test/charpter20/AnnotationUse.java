@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  */
 @DBTable(name="member")
 @Component
-public class Member {
+public class AnnotationUse {
     //由于在@SQLString中，含有value元素，且此处只给value赋值，那么可以不必使用名值对，直接赋值
     @SQLString(30)
     String firstName;
@@ -41,6 +41,7 @@ public class Member {
     }
 
     public Integer getAge() {
+        System.out.println("进入age方法");
         return age;
     }
 
@@ -66,6 +67,6 @@ public class Member {
     }
 
     public static void main(String[] args) {
-        new Member().getAge();
+        new AnnotationUse().getAge();
     }
 }

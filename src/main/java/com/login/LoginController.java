@@ -7,6 +7,10 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.common.util.ApplicationContextUtil;
+import com.learning.test.charpter20.MyASP;
+import com.learning.test.charpter20.MyPojoBean;
+import com.learning.test.charpter20.MyPojoBean1;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -88,5 +92,14 @@ public class LoginController {
 		return "hello";
 		
 	}
-	
+
+	@RequestMapping(params = "aspectTest")
+	@ResponseBody
+	public String aspectTest(){
+		MyPojoBean1 mj = ApplicationContextUtil.getBean("myPojoBean1");
+		mj.sayAge();
+		//mj.speakSomething();
+		System.out.println("ddddd");
+		return "success";
+	}
 }

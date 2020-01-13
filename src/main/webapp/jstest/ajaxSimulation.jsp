@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input type="button" value="test" onclick="getText()">
+<input type="button" value="test" onclick="aspectTest()">
 <script>
 
 	function getText() {
@@ -27,6 +27,7 @@
 		}
 		re.send(null);
 	}
+
 </script>
 </body>
 </html>

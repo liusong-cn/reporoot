@@ -1,4 +1,4 @@
-package com.spring;
+package com.aop;
 
 import com.learning.test.charpter20.DBTable;
 import org.springframework.beans.BeansException;
