@@ -13,11 +13,12 @@ import com.learning.test.charpter20.MyPojoBean;
 import com.learning.test.charpter20.MyPojoBean1;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/loginController")
+@RequestMapping("/rest/loginController")
 public class LoginController {
 	
 	@RequestMapping(params = "validateLogin")
@@ -100,6 +101,16 @@ public class LoginController {
 		mj.sayAge();
 		//mj.speakSomething();
 		System.out.println("ddddd");
+		return "success";
+	}
+
+	/**
+	 * restful接口
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.GET)
+	public String testRest(){
 		return "success";
 	}
 }

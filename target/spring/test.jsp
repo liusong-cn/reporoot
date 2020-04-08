@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="<%=basePath %>/webpage/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>/jquery/jquery-1.8.0.min.js"></script>
 <script src="<%=basePath %>/webpage/Highcharts-7.0.2/code/highcharts.js"></script>
 <script src="<%=basePath %>/webpage/Highcharts-7.0.2/code/modules/exporting.js"></script>
 <script src="<%=basePath %>/webpage/Highcharts-7.0.2/code/modules/offline-exporting.js"></script>
@@ -21,12 +21,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <a href="/springDemo/testController?goPage&param=t" target="_blank">hello</a>
 <input type="button" id="testSessionTransfer" onclick="doSessionTransfer()" value="真的">
 <input type="button" id="uploadSVG" onclick="doUpload()" value="测试">
+<input type="button" id="aspectTest" onclick="aspectTest()" value="切面测试">
 <div id="container"></div>
 <script type="text/javascript">
 	function doSessionTransfer(){
 		
 		$.ajax({
-			url : '/springDemo/loginController.do?doLogin',
+			url : '/spring/loginController.do?doLogin',
 			type : 'post',
 			success : function(data){
 				if(data.success){
@@ -128,6 +129,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		})
 	}
+
+    //测试切面的使用
+    function aspectTest(){
+	    debugger;
+        $.ajax({
+            url : '/spring_war_exploded/loginController.do?aspectTest',
+            type : 'post',
+            cache : false,
+            async : false,
+            success : function(d){
+                if(d == 'success'){
+                    alert("chenggong");
+                }
+            }
+        })
+    }
 </script>
 </body>
 </html>

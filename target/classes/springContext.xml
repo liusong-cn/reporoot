@@ -27,23 +27,26 @@
     <!-- 支持mvc注解驱动 -->
     <mvc:annotation-driven />
 
+    <!--支持aop注解-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
     <!-- 视图解析器 -->
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver"
         id="internalResourceViewResolver">
         <!-- 前缀 -->
-        <property name="prefix" value="/webpage/"/>
+        <property name="prefix" value="/"/>
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>
     <!-- 自定义获取bean的工具类 -->
     <bean id="ApplicationContextUtil" class="com.common.util.ApplicationContextUtil"></bean>
-    
-    
+
     <!-- 原始xml方式配置bean -->
-    <bean id="noAnnotationBean" class="com.run.NoAnnotationBean">
-    
-    </bean>
+    <bean id="noAnnotationBean" class="com.run.NoAnnotationBean"/>
+
+
+
     
    <!--  <bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

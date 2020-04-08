@@ -79,6 +79,7 @@
           <element id="library" level="project" name="Maven: org.apache.wss4j:wss4j-bindings:2.0.2" />
           <element id="library" level="project" name="Maven: org.apache.santuario:xmlsec:2.0.2" />
           <element id="library" level="project" name="Maven: org.apache.ws.xmlschema:xmlschema-core:2.1.0" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.62" />
         </element>
       </element>
       <element id="directory" name="META-INF">
