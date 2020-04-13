@@ -37,5 +37,10 @@ public class MyPojoBean1 {
     public void speakSomething(){
         System.out.println("should i speak");
     }
+
+    @XmlStructure
+    public void xml(){
+        System.out.println("into around");
+    }
 }
 

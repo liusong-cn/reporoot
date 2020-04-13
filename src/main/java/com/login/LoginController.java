@@ -98,10 +98,10 @@ public class LoginController {
 	@ResponseBody
 	public String aspectTest(){
 		MyPojoBean1 mj = ApplicationContextUtil.getBean("myPojoBean1");
-		mj.sayAge();
-		//mj.speakSomething();
-		System.out.println("ddddd");
+//		mj.sayAge();
+		mj.xml();
 		return "success";
+
 	}
 
 	/**

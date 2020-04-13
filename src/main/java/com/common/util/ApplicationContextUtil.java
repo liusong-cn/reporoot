@@ -21,6 +21,8 @@ public class ApplicationContextUtil implements ApplicationContextAware{
 			System.out.println("初始化应用上下文失败");
 		}
 	}
+
+	public static ApplicationContext getContext(){return application;}
 	
 	/**
 	 * <T>标记该方法是一个泛型方法，没有则不能使用泛型作为返回类型
