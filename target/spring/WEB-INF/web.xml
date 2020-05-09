@@ -20,7 +20,9 @@
   <servlet-mapping>
     <!--优先级 精确匹配 gt 最长路径匹配 gt 后缀匹配 gt 默认匹配(以"/"匹配) -->
     <!-- 目前路径匹配有问题，不能使用类似 /rest/* -->
+    <!--查资料发现spring的dispatcherservlet在分发时会将req的url与url-pattern中的相同部分截去，匹配剩下的部分-->
+    <!--因此后续的controller中路径应该匹配剩下的url，eg： requrl /spring/rest/user, controller中requestmapping /user-->
     <servlet-name>springMVC</servlet-name>
-    <url-pattern>/rest/loginController</url-pattern>
+    <url-pattern>/rest1/*</url-pattern>
   </servlet-mapping>
 </web-app>
