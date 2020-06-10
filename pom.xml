@@ -197,6 +197,11 @@
       <version>1.18.12</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.jasig.cas.client</groupId>
+      <artifactId>cas-client-core</artifactId>
+      <version>3.5.1</version>
+    </dependency>
 
     <!-- axis2需要的jar -->
     <!--  <dependency>

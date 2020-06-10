@@ -111,6 +111,7 @@ public class LoginController {
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET)
 	public String testRest(){
+		System.out.println(111);
 		return "success";
 	}
 }

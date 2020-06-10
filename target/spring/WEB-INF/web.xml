@@ -1,9 +1,69 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+<!--  &lt;!&ndash; 单点退出Listener &ndash;&gt;-->
+<!--  <listener>-->
+<!--    <listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>-->
+<!--  </listener>-->
+<!--  &lt;!&ndash; 单点退出Filter &ndash;&gt;-->
+<!--  <filter>-->
+<!--    <filter-name>CAS Single Sign Out Filter</filter-name>-->
+<!--    <filter-class>org.jasig.cas.client.session.SingleSignOutFilter</filter-class>-->
+<!--    <init-param>-->
+<!--      <param-name>casServerUrlPrefix</param-name>-->
+<!--      <param-value>http://localhost:12013/cas</param-value>-->
+<!--    </init-param>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>CAS Single Sign Out Filter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
+
+<!--  &lt;!&ndash; CAS认证Filter &ndash;&gt;-->
+<!--  <filter>-->
+<!--    <filter-name>CASFilter</filter-name>-->
+<!--    <filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>-->
+<!--    <init-param>-->
+<!--      &lt;!&ndash; CAS登录页面,当SessionId无法匹配Session时,跳转到CAS登录页面 &ndash;&gt;-->
+<!--      <param-name>casServerLoginUrl</param-name>-->
+<!--      <param-value>http://localhost:12013/cas/login</param-value>-->
+<!--    </init-param>-->
+<!--    <init-param>-->
+<!--      <param-name>serverName</param-name>-->
+<!--      <param-value>http://localhost:7088/spring</param-value>-->
+<!--    </init-param>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>CASFilter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
+
+<!--  &lt;!&ndash; CAS Ticket校验Filter &ndash;&gt;-->
+<!--  <filter>-->
+<!--    <filter-name>CAS Validation Filter</filter-name>-->
+<!--    <filter-class>org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter</filter-class>-->
+<!--    <init-param>-->
+<!--      <param-name>casServerUrlPrefix</param-name>-->
+<!--      <param-value>http://localhost:12013/cas</param-value>-->
+<!--    </init-param>-->
+<!--    <init-param>-->
+<!--      <param-name>serverName</param-name>-->
+<!--      <param-value>http://localhost:7088/spring</param-value>-->
+<!--    </init-param>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>CAS Validation Filter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
+
+<!--  &lt;!&ndash; 使客户端支持通过AssertionHolder来获取用户的登录名 &ndash;&gt;-->
+<!--  <filter>-->
+<!--    <filter-name>CAS Assertion Thread Local Filter</filter-name>-->
+<!--    <filter-class>org.jasig.cas.client.util.AssertionThreadLocalFilter</filter-class>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>CAS Assertion Thread Local Filter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
   <servlet>
     <servlet-name>springMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -13,6 +73,16 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+
+  <!--自定义casfilter-->
+<!--  <filter>-->
+<!--    <filter-class>com.filter.CasFilter</filter-class>-->
+<!--    <filter-name>casfilter</filter-name>-->
+<!--  </filter>-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>casfilter</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
 
   <servlet>
     <servlet-name>myServlet</servlet-name>
@@ -34,4 +104,5 @@
     <servlet-name>springMVC</servlet-name>
     <url-pattern>/rest1/*</url-pattern>
   </servlet-mapping>
+
 </web-app>

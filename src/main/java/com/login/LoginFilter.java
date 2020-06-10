@@ -1,5 +1,7 @@
 package com.login;
 
+import org.jasig.cas.client.util.AssertionHolder;
+
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -26,6 +28,7 @@ public class LoginFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest)arg0;
 		HttpSession session = req.getSession();
 		HttpServletResponse res = (HttpServletResponse) arg1;
+
 		//模拟地址白名单
 		if(req.getRequestURI().contains("index.jsp") || req.getRequestURI().contains("test.jsp") || req.getRequestURI().contains("testController") ||(req.getRequestURI().contains("loginController") && req.getQueryString().contains("doLogin"))){
 			arg2.doFilter(arg0, arg1);

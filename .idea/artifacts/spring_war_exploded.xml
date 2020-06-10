@@ -82,6 +82,10 @@
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.62" />
           <element id="library" level="project" name="Maven: org.dom4j:dom4j:2.1.1" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.jasig.cas.client:cas-client-core:3.5.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.8.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.8" />
         </element>
       </element>
       <element id="directory" name="META-INF">
