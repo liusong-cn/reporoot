@@ -16,16 +16,16 @@ public class Stack<T> {
         N = 0;
     }
 
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return N == 0;
     }
 
-    private int size(){
+    public int size(){
         return N;
     }
 
     //为了先进后出，所以每次将新元素插入到head的下一个
-    private void push(T item){
+    public void push(T item){
         if(isEmpty()) {
             Node node = new Node(null, item);
             head.next = node;
@@ -38,7 +38,7 @@ public class Stack<T> {
     }
 
     //每次弹出栈顶元素
-    private T pop(){
+    public T pop(){
         if(isEmpty())
             return null;
         Node n = head.next;

@@ -17,15 +17,15 @@ public class Queue<T> {
         N = 0;
     }
 
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return N == 0;
     }
 
-    private int size(){
+    public int size(){
         return N;
     }
 
-    private void enQueue(T item){
+    public void enQueue(T item){
         if(isEmpty()){
             Node newNode = new Node(item,null);
             head.next = newNode;
@@ -39,7 +39,7 @@ public class Queue<T> {
         N++;
     }
 
-    private T dequeue(){
+    public T dequeue(){
         if(isEmpty())
             return null;
         Node node = head.next;

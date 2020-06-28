@@ -1,5 +1,7 @@
 package algorithm.tree;
 
+import algorithm.linked.Queue;
+
 /**
  * @author: ls
  * @date: 2020/6/21 0021 10:02
@@ -45,7 +47,6 @@ public class BinaryTree<K extends Comparable<K>,V> {
             //如果当前key等于node.key,则替换node
             node.value = value;
         }
-        N++;
         return node;
     }
 
@@ -70,8 +71,8 @@ public class BinaryTree<K extends Comparable<K>,V> {
         }
     }
 
-    public Node delete(K key){
-        return delete(root,key);
+    public void delete(K key){
+        delete(root,key);
     }
 
     //删除并返回删除后的子树
@@ -84,14 +85,15 @@ public class BinaryTree<K extends Comparable<K>,V> {
         }else if(cmp<0){
             node.left = delete(node.left,key);
         }else {
+            N--;
             //当需要删除当前节点时，需要返回其子树，判断子树是否存在
-            //左子树不存在,返回右子树
-            if(node.left == null){
-                return node.right;
-            }
             //右子树不存在,返回左子树
             if(node.right == null){
                 return node.left;
+            }
+            //左子树不存在,返回右子树
+            if(node.left == null){
+                return node.right;
             }
             //子树存在时，找到子树的右子树中最小的节点，将其替换当前节点,删除其原本位置，并挂接当前节点的左右子树
             Node minNode = node.right;
@@ -111,9 +113,13 @@ public class BinaryTree<K extends Comparable<K>,V> {
             }
             minNode.left = node.left;
             minNode.right = node.right;
-            //让最小值替换当前节点
-            node = minNode;
-            N--;
+            if(node == root){
+                root = minNode;
+            }else {
+                //让最小值替换当前节点
+                node = minNode;
+
+            }
 
 
 
@@ -148,6 +154,37 @@ public class BinaryTree<K extends Comparable<K>,V> {
 
     }
 
+    //遍历方式根据是否先查找根节点，再查找左子树和右子树而不同，分为
+    //前序遍历：根节点，左子树，右子树
+    //中序遍历：左子树，根节点，右节点
+    //后序遍历：左子树，右子树，根节点
+    public Queue<K> preErgodic(){
+        Queue<K> keys = new Queue<>();
+        preErgodic(root,keys);
+        return keys;
+    }
+
+    public void preErgodic(Node node,Queue<K> queue){
+        if(node == null)
+            return;
+        queue.enQueue((K) node.key);
+        if(node.left != null){
+            preErgodic(node.left,queue);
+        }
+        if(node.right != null){
+            preErgodic(node.right,queue);
+        }
+    }
+
+    public void preErgodic1(Node cur){
+        if(cur != null){
+            System.out.println("key:" + cur.key + ",value:" + cur.value);
+            preErgodic1(cur.left);
+            preErgodic1(cur.right);
+        }
+    }
+
+
     public static void main(String[] args) {
         BinaryTree<Integer,String> b = new BinaryTree<>();
         b.put(10,"a");
@@ -157,9 +194,15 @@ public class BinaryTree<K extends Comparable<K>,V> {
         b.put(12,"d");
         b.put(15,"e");
         b.put(11,"g");
-        System.out.println(b.get(3));
-        System.out.println(b.delete(10).value);
+        b.delete(12);
+//        System.out.println(b.get(3));
+//        System.out.println(b.size());
+//        Queue<Integer> keys = b.preErgodic();
+//        for (int i = 0; i < 7; i++) {
+//            System.out.println(b.get(keys.dequeue()));
+//        }
 //        System.out.println(b.get(10));
+        b.preErgodic1(b.root);
 
     }
 
