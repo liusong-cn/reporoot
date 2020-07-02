@@ -40,9 +40,9 @@ public class Heap<T extends Comparable<T>> {
         T max = items[1];
         //交换末尾元素和根节点元素
         exchange(1,N);
-        //交换后的根节点需要下陈找到合适的位置
-        sink(1);
         N--;
+        //交换后的根节点需要下沉找到合适的位置
+        sink(1);
         //删除交换后的末尾元素，即交换前的根节点
         items[N] = null;
         return max;
