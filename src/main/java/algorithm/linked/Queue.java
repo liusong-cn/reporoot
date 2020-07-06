@@ -1,10 +1,12 @@
 package algorithm.linked;
 
+import java.util.Iterator;
+
 /**
  * @author: ls
  * @date: 2020/6/19 0019 09:32
  */
-public class Queue<T> {
+public class Queue<T> implements Iterable<T>{
 
     private int N;
 
@@ -46,6 +48,31 @@ public class Queue<T> {
         head.next = node.next;
         N--;
         return node.item;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new QIterator();
+    }
+
+    private class QIterator implements Iterator{
+
+        private Node node;
+
+        public QIterator(){
+            node = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return node.next != null;
+        }
+
+        @Override
+        public Object next() {
+            Node n = node.next;
+            return n.item;
+        }
     }
 
     private class Node{
