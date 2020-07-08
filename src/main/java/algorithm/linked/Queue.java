@@ -16,6 +16,7 @@ public class Queue<T> implements Iterable<T>{
 
     public Queue(){
         head = new Node(null,null);
+        last = null;
         N = 0;
     }
 
@@ -28,7 +29,7 @@ public class Queue<T> implements Iterable<T>{
     }
 
     public void enQueue(T item){
-        if(isEmpty()){
+        if(last == null){
             Node newNode = new Node(item,null);
             head.next = newNode;
             last = newNode;
@@ -47,6 +48,9 @@ public class Queue<T> implements Iterable<T>{
         Node node = head.next;
         head.next = node.next;
         N--;
+        if(isEmpty()){
+            last = null;
+        }
         return node.item;
     }
 
@@ -70,8 +74,8 @@ public class Queue<T> implements Iterable<T>{
 
         @Override
         public Object next() {
-            Node n = node.next;
-            return n.item;
+            node = node.next;
+            return node.item;
         }
     }
 
@@ -92,7 +96,10 @@ public class Queue<T> implements Iterable<T>{
         q.enQueue("a");
         q.enQueue("b");
         q.enQueue("c");
-        System.out.println(q.dequeue());
+//        System.out.println(q.dequeue());
+        for (String s : q) {
+            System.out.println(s);
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-package algorithm.tree.graph;
+package algorithm.graph;
 
 import algorithm.linked.Queue;
 import org.apache.poi.ss.formula.functions.T;

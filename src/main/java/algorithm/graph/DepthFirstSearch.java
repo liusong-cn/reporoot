@@ -1,4 +1,7 @@
-package algorithm.tree.graph;
+package algorithm.graph;
+import algorithm.graph.Graph;
+import algorithm.linked.Queue;
+import algorithm.linked.Stack;
 
 /**
  * @author: ls
@@ -18,6 +21,7 @@ public class DepthFirstSearch {
         marked = new boolean[g.getV()];
         //这一步似乎多余，实例变量在实例化时会自动赋默认值，int默认为0
         count = 0;
+        dfs(g,s);
     }
 
     //找到
@@ -25,7 +29,8 @@ public class DepthFirstSearch {
         //将当前顶点标记为已搜索
         marked[v] = true;
         //查找邻接表，对每一个邻接顶点判断是否已被搜索，未被搜索则递归调用
-        for (Integer w : g.adj(v)) {
+        Queue<Integer> adjacency = g.adj(v);
+        for (Integer w : adjacency) {
             //未被搜索，则递归
             if(!marked[w]){
                 dfs(g,w);
@@ -44,5 +49,18 @@ public class DepthFirstSearch {
     //返回与给定顶点相通顶点的个数
     public int count(){
         return count;
+    }
+
+    public static void main(String[] args) {
+        Graph g = new Graph(5);
+        g.addEdge(0,1);
+        g.addEdge(1,2);
+        g.addEdge(2,3);
+        g.addEdge(3,4);
+        g.addEdge(2,4);
+
+        DepthFirstSearch d = new DepthFirstSearch(g,3);
+        System.out.println(d.count());
+
     }
 }
