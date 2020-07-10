@@ -53,7 +53,7 @@ public class DepthFirstOrder {
         DepthFirstOrder d = new DepthFirstOrder(g);
         Stack<Integer> s = d.reversePost();
         while (!s.isEmpty()){
-            System.out.println(s.pop());
+            System.out.println(s.pop() + 1);
         }
     }
 }
