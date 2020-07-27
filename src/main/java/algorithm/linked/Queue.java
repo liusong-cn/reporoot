@@ -1,10 +1,12 @@
 package algorithm.linked;
 
+import java.util.Iterator;
+
 /**
  * @author: ls
  * @date: 2020/6/19 0019 09:32
  */
-public class Queue<T> {
+public class Queue<T> implements Iterable<T>{
 
     private int N;
 
@@ -14,19 +16,20 @@ public class Queue<T> {
 
     public Queue(){
         head = new Node(null,null);
+        last = null;
         N = 0;
     }
 
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return N == 0;
     }
 
-    private int size(){
+    public int size(){
         return N;
     }
 
-    private void enQueue(T item){
-        if(isEmpty()){
+    public void enQueue(T item){
+        if(last == null){
             Node newNode = new Node(item,null);
             head.next = newNode;
             last = newNode;
@@ -39,13 +42,41 @@ public class Queue<T> {
         N++;
     }
 
-    private T dequeue(){
+    public T dequeue(){
         if(isEmpty())
             return null;
         Node node = head.next;
         head.next = node.next;
         N--;
+        if(isEmpty()){
+            last = null;
+        }
         return node.item;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new QIterator();
+    }
+
+    private class QIterator implements Iterator{
+
+        private Node node;
+
+        public QIterator(){
+            node = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return node.next != null;
+        }
+
+        @Override
+        public Object next() {
+            node = node.next;
+            return node.item;
+        }
     }
 
     private class Node{
@@ -65,7 +96,10 @@ public class Queue<T> {
         q.enQueue("a");
         q.enQueue("b");
         q.enQueue("c");
-        System.out.println(q.dequeue());
+//        System.out.println(q.dequeue());
+        for (String s : q) {
+            System.out.println(s);
+        }
     }
 
 }
