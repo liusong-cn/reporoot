@@ -12,7 +12,7 @@ public class BillContainer {
 	}
 	
 	/**
-	 * 供账本的查看着查看账本
+	 * 供账本的查看者查看账本
 	 * @param abv
 	 */
 	public void show(AccountBillViewer abv){
