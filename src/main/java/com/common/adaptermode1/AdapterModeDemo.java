@@ -3,7 +3,7 @@ package com.common.adaptermode1;
 public class AdapterModeDemo {
 	
 	public static void main(String[] args) {
-		Tartget t = new Tartget();
+		Target t = new Target();
 		Adaptee e = new  Adaptee();
 		Adapter ae = new Adapter();
 		//此处的适配器模式看着就像是返回同样类型的值的不同方法，这种就很常见了
