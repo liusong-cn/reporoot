@@ -1,6 +1,6 @@
 package com.common.adaptermode1;
 
-//被代理者
+//适配者
 public class Adaptee {
 	
 	public int getAge() {
