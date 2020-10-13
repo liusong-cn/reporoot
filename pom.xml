@@ -27,7 +27,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.1</version>
+      <version>4.13.1</version>
       <!-- 配置为test，则只在src/test目录下生效，且不参与编译，运行 -->
       <scope>test</scope>
     </dependency>
