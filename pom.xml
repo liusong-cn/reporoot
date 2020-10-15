@@ -272,5 +272,31 @@
               </configuration>
           </plugin>
       </plugins>
+
+    <resources>
+      <!--src/main/resouces目录下文件默认打包，但如果在maven plugin resources下配置了,则必须手动添加该配置
+      否则resources目录下文件不会打包-->
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+          <include>**/*.tld</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+
+      <!--打包java下文件-->
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+          <include>**/*.tld</include>
+          <include>**/*.csv</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
   </build>
 </project>
