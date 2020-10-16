@@ -24,7 +24,7 @@ public class DepthFirstSearch {
         dfs(g,s);
     }
 
-    //找到
+    //找到与v相通的顶点
     public void dfs(Graph g, int v){
         //将当前顶点标记为已搜索
         marked[v] = true;
