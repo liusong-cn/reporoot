@@ -61,7 +61,7 @@ public class UFTree {
         if(pr == qr){
             return;
         }
-        //让pr的父节点为qr的父节点，即将pr设为qr的子节点
+        //让pr的父节点为qr的子节点，即将pr设为qr的子节点
         groups[pr] = groups[qr];
         count--;
     }
