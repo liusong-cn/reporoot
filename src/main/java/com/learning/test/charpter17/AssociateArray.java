@@ -5,7 +5,10 @@ public class AssociateArray<K,V> {
 	private int index;
 	
 	private Object[][] pairs;
-	
+
+	//二维数组表示 [[],[],[]] = Object[a][b],a表示数组的长度，b表示作为元素的每个数组的长度
+	//由此可推论,多维数组最后一个长度表示真正作为元素的数组的长度，由此往外的每个长度均表示
+	//作为嵌套数组的长度，和数学中的n维数组不一样
 	public AssociateArray(int length){
 		pairs = new Object[length][2];
 	}
