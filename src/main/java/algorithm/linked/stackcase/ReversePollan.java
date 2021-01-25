@@ -1,4 +1,6 @@
-package algorithm.linked;
+package algorithm.linked.stackcase;
+
+import algorithm.linked.Stack;
 
 /**
  * @author: ls
@@ -54,6 +56,7 @@ public class ReversePollan {
 
         return Integer.valueOf(stack.pop());
     }
+
 
 
 }
