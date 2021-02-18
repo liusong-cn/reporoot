@@ -2,6 +2,7 @@ package algorithm.tree;
 
 import algorithm.linked.Queue1;
 
+
 /**
  * @author: ls
  * @date: 2020/6/22 0022 09:28
@@ -9,15 +10,15 @@ import algorithm.linked.Queue1;
 public class BinaryTree1<Key extends Comparable<Key>, Value> {
 
     //记录根结点
-    private Node root;
+    protected Node root;
     //记录树中元素的个数
-    private int N;
+    protected int N;
 
-    private class Node {
+    protected class Node {
         //存储键
         public Key key;
         //存储值
-        private Value value;
+        public Value value;
         //记录左子结点
         public Node left;
         //记录右子结点
@@ -38,6 +39,7 @@ public class BinaryTree1<Key extends Comparable<Key>, Value> {
 
     //向树中添加元素key-value
     public void put(Key key, Value value) {
+        //以root为根返回后可更新root所在的树
         root = put(root, key, value);
     }
 
@@ -195,6 +197,7 @@ public class BinaryTree1<Key extends Comparable<Key>, Value> {
     }
 
     //获取整个树中所有的键
+    //前中后序遍历指的是子树中根节点的遍历顺序
     public Queue1<Key> preErgodic(){
         Queue1<Key> keys = new Queue1<>();
         preErgodic(root, keys);
@@ -328,7 +331,6 @@ public class BinaryTree1<Key extends Comparable<Key>, Value> {
         //比较左子树最大深度和右子树最大深度，取较大值+1即可
 
         max = maxL>maxR?maxL+1:maxR+1;
-
         return max;
     }
 
