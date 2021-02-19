@@ -38,7 +38,7 @@ public class HeapSort {
     public static void creatHeap(Comparable[] source, Comparable[] des){
         //copy一个长度为source.length +1 的数组，从一开始存储元素，可以理解为一个无序的堆
         System.arraycopy(source,0,des,1,source.length);
-        //从堆中二分之一索引处倒序遍历节点，对每个节点做下沉操作
+        //从堆中二分之一索引处倒序遍历节点，对每个节点做下沉操作,因最下层节点占所有节点的一半，因此除2就是从倒数第二层开始遍历
         for (int i = des.length/2; i > 0 ; i--) {
             sink(des,i,des.length -1);
         }
