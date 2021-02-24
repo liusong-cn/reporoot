@@ -203,6 +203,12 @@
       <version>3.5.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.openjdk.jol</groupId>
+      <artifactId>jol-core</artifactId>
+      <version>0.9</version>
+    </dependency>
+
     <!-- axis2需要的jar -->
     <!--  <dependency>
         <groupId>org.apache.axis2</groupId>
