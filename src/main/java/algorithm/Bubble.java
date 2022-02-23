@@ -1,7 +1,6 @@
 package algorithm;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author: ls
@@ -33,7 +32,7 @@ public class Bubble {
     }
 
     public static void main(String[] args) {
-        Integer[] a = {1,3,5,8,2,6,7};
+        Integer[] a = {1, 3, 5, 8, 2, 6, 7};
         Bubble.sort(a);
         System.out.println(Arrays.toString(a));
     }
