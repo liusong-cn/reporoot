@@ -25,14 +25,17 @@ public class Combination {
      */
     void backtracking(int[] n, int k, int startIndex) {
         if (result.size() == k) {
-            results.enqueue(result);
+            Integer[] r = new Integer[k];
+            for (int i = 0; i < result.size(); i++) {
+                r[i] = result.get(i);
+            }
+            results.enqueue(Arrays.asList(r));
             return;
         }
         for (int i = startIndex; i < n.length; i++) {
-            int j = n[i];
-            result.add(j);
+            result.add(n[i]);
             backtracking(n, k, ++startIndex);
-            result.remove((Object) j);
+            result.remove(((Object) n[i]));
         }
     }
 
