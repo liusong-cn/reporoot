@@ -1,11 +1,9 @@
 package com.learning.test.charpter20;
 
 import com.common.util.ApplicationContextUtil;
-import org.apache.log4j.LogManager;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
