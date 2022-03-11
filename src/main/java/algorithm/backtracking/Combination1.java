@@ -1,6 +1,7 @@
 package algorithm.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,15 +29,17 @@ public class Combination1 {
     private static int threshold = 20;
 
     public static void backtracking(int i) {
-        if (i > weights.length - 1 || getWeight() + weights[i] > threshold) {
+        if (i > weights.length - 1) {
             System.out.println(getPrice());
-            System.out.println("weight:" + getWeight());
+            System.out.println("weight:" + getWeight() + "  combo:" + printCombo());
             return;
         }
         for (int j = i; j < weights.length; j++) {
-            index.add(j);
-            backtracking(j + 1);
-            index.remove(index.size() - 1);
+            if (getWeight() + weights[j] <= threshold) {
+                index.add(j);
+                backtracking(j + 1);
+                index.remove(index.size() - 1);
+            }
         }
     }
 
@@ -46,6 +49,10 @@ public class Combination1 {
 
     public static int getPrice() {
         return index.stream().mapToInt(i -> prices[i]).sum();
+    }
+
+    public static String printCombo() {
+        return Arrays.toString(index.toArray());
     }
 
     public static void main(String[] args) {
