@@ -1,5 +1,4 @@
 package algorithm.graph;
-import algorithm.graph.Digraph;
 
 /**
  * @author: ls
@@ -12,14 +11,14 @@ public class DirectedCycle {
     //顶点是否被搜索数组
     private boolean[] marked;
     //顶点是否在栈中数组
-    private boolean[] onstack;
+    private boolean[] onStack;
 
     //是否有环
     private boolean hasCycle;
 
     public DirectedCycle(Digraph g){
         marked = new boolean[g.V()];
-        onstack = new boolean[g.V()];
+        onStack = new boolean[g.V()];
         //对每一个顶点调用深度优先算法，判断是否有环
         for (int i = 0; i < g.V(); i++) {
             if(!marked[i])
@@ -36,7 +35,7 @@ public class DirectedCycle {
         //标记已被搜索
         marked[v] = true;
         //标记栈中已有
-        onstack[v] = true;
+        onStack[v] = true;
         //遍历邻接表，
         for (Integer integer : g.adj(v)) {
             //判断当前顶点是否被搜索过，未则递归调用dfs
@@ -45,13 +44,13 @@ public class DirectedCycle {
             }
 
             //判断当前顶点是否在栈中，是则表示有环
-            if(onstack[integer]){
+            if (onStack[integer]) {
                 hasCycle = true;
                 return;
             }
         }
         //从栈中出栈
-        onstack[v] = false;
+        onStack[v] = false;
     }
 
     public static void main(String[] args) {
