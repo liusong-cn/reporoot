@@ -18,6 +18,12 @@ public class BreadthFirstSearch {
 
     private Queue<Integer> queue;
 
+    public BreadthFirstSearch(Graph graph,int v) {
+        marked = new boolean[graph.getV()];
+        queue = new Queue<>();
+        bfs(graph,v);
+    }
+
     public void bfs(Graph g, int v){
         //将顶点放入队列
         queue.enQueue(v);
@@ -27,9 +33,7 @@ public class BreadthFirstSearch {
         while (!queue.isEmpty()){
             Integer w = queue.dequeue();
             for (Integer i : g.adj(w)) {
-                if(!marked[i]){
-                    bfs(g,i);
-                }
+                queue.enQueue(i);
             }
         }
         //相通顶点个数加1
@@ -42,5 +46,16 @@ public class BreadthFirstSearch {
 
     public int count(){
         return count;
+    }
+
+    public static void main(String[] args) {
+        Graph g = new Graph(5);
+        g.addEdge(0,1);
+        g.addEdge(1,2);
+        g.addEdge(2,3);
+        g.addEdge(3,4);
+        g.addEdge(2,4);
+        BreadthFirstSearch bfs = new BreadthFirstSearch(g,0);
+        System.out.println(bfs.count());
     }
 }
